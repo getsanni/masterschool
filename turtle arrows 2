@@ -1,0 +1,23 @@
+import turtle
+
+amy = turtle.Turtle()
+
+amy.width(5)
+
+
+amy.back(100)
+
+
+amy.color("red")
+
+
+amy.forward(100)
+
+
+amy.color("orange")
+
+
+amy.forward(100)
+
+
+amy.color("yellow")
