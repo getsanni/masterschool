@@ -1,0 +1,22 @@
+import turtle
+t = turtle.Turtle()
+
+colors = ["red","yellow","green","blue","purple"]
+side_len = 60
+
+for multiplier in [-2,-1,0,1,2]:
+    start_pos = side_len * multiplier
+    
+    #position turtle
+    t.penup()
+    t.goto(start_pos,start_pos)
+    t.pendown()
+
+    #Draw square
+    t.color(colors[multiplier + 2])
+    for side in range (4):
+       t.forward(side_len)
+       t.right(90)
+    
+
+    
