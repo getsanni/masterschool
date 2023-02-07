@@ -1,0 +1,7 @@
+import turtle
+t = turtle.Turtle()
+t.color("red")
+
+for side in range(120):
+    t.forward(side)
+    t.right(45)
