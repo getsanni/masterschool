@@ -1,0 +1,26 @@
+import turtle
+
+#The draw_square() function is a helper function that takes a turtle object, a size, and a color, and uses the turtle to draw a square with the given size and color.
+def draw_square(t, size, color):
+    t.color(color)
+    t.begin_fill()
+    for sides in range(4):
+        t.forward(size)
+        t.right(90)
+    t.end_fill()
+#The square_line() function takes a turtle object, a number of squares to draw, and a list of colors to alternate between. It then calls draw_square() repeatedly to draw the squares in the specified colors, using the modulo operator to cycle through the colors.
+def square_line(turtle, num_squares, colors):
+    size = 25
+    for i in range(num_squares):
+        draw_square(turtle, size, colors[i % len(colors)])
+        turtle.penup()
+        turtle.forward(size)
+        turtle.pendown()
+#The colors list contains the colors to use for the alternating squares.
+colors = ['blue', 'red'] 
+#The turtle object t is created with turtle.Turtle(), and its speed is set to 5 with t.speed(5)
+t = turtle.Turtle()
+t.speed(5)
+
+#Finally, square_line() is called with t, 2, and colors as arguments, so it draws a line of 2 squares in blue and red colors.
+square_line(t, 2, colors)
