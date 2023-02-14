@@ -1,0 +1,37 @@
+#Advance learning week 3
+
+import turtle
+t = turtle.Turtle()
+t.speed(5) # 1:slowest, 3:slow, 5:normal, 10:fast, 0:fastest
+
+t.begin_fill()
+
+#defining a function square
+def square(length, fill_color):
+     for sides in range(4):
+         t.forward(length)
+         t.right(90)
+         t.fillcolor(fill_color)
+         
+         
+square(50, 'red')    
+
+t.end_fill() 
+
+t.penup()
+t.forward(100)
+t.pendown()
+
+t.begin_fill()
+
+def square(length, fill_color):
+     for sides in range(4):
+         t.forward(length)
+         t.right(90)
+         t.fillcolor(fill_color)
+         
+         
+
+square(20, 'black')    
+
+t.end_fill() 
