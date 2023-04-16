@@ -1,0 +1,13 @@
+-- Select fields from cities
+SELECT name,country_code,city_proper_pop , metroarea_pop ,city_proper_pop / metroarea_pop * 100
+FROM cities,
+-- Use subquery to filter city name
+           (SELECT capital
+           FROM countries
+           WHERE continent = 'Europe' OR continent LIKE '%America') as sub
+           
+-- Add filter condition such that metroarea_pop does not have null values
+WHERE  metroarea_pop IS NOT NULL
+-- Sort and limit the result
+ORDER BY name
+LIMIT 10;
