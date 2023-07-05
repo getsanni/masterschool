@@ -1,0 +1,20 @@
+SELECT
+  u.id,                          -- User ID
+  u.country,                     -- User's country
+  u.gender,                      -- User's gender
+  g.device,                      -- User's device type
+  g.group,                       -- User's test group
+  CASE WHEN SUM(a.spent) > 0 THEN 'Yes' ELSE 'No' END AS converted,  -- Whether the user has converted or not
+  SUM(a.spent) AS total_spent    -- Total amount spent by the user
+FROM
+  users u
+LEFT JOIN
+  groups g ON u.id = g.uid       -- Joining the users table with the groups table using user ID
+LEFT JOIN
+  activity a ON g.uid = a.uid    -- Joining the groups table with the activity table using user ID
+GROUP BY
+  u.id,                          -- Grouping by user ID
+  u.country,                     -- Grouping by country
+  u.gender,                      -- Grouping by gender
+  g.device,                      -- Grouping by device type
+  g.group                        -- Grouping by test group
